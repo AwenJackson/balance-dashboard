@@ -1,0 +1,19 @@
+{
+  "name": "balance-dashboard",
+  "plugins": [
+    {
+      "name": "balance-dashboard",
+      "source": ".",
+      "version": "0.3.0",
+      "description": "Left-sidebar balance widget for DeepSeek, Volcengine (account + Coding Plan) and ZCode, with a settings modal and consumption analytics (time/project/task filters, charts). Injected via app.asar; requires a restart.",
+      "displayName": "Balance Dashboard",
+      "displayName_i18n": {
+        "zh-CN": "余额面板"
+      },
+      "description_i18n": {
+        "zh-CN": "左侧边栏余额：DeepSeek、火山引擎账户与 Coding Plan、ZCode 套餐与今日消耗。点击余额行查看多维度消耗分析，齿轮配置密钥。组件通过 app.asar 注入，安装/更新后需重启 ZCode。"
+      },
+      "category": "finance"
+    }
+  ]
+}

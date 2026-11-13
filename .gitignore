@@ -1,0 +1,11 @@
+# Local artifacts
+.zcode/
+*.log
+*.tmp
+*.tmp.json
+*.bak
+node_modules/
+
+# OS
+Thumbs.db
+.DS_Store
