@@ -1,4 +1,8 @@
-# 余额面板（balance-dashboard）
+# Balance Dashboard · 余额面板
+
+[![Version](https://img.shields.io/badge/version-0.3.0-blue)](../../releases) [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![Platform](https://img.shields.io/badge/platform-ZCode%20Desktop%203.18%2B-orange)](https://zcode.z.ai)
+
+> **关键词 / Keywords**: ZCode 插件, ZCode plugin, ZCode Desktop, 余额查询, 用量统计, token 消耗, DeepSeek 余额, 火山引擎余额, 火山方舟 Coding Plan, BigModel, GLM, consumption analytics, usage dashboard, sidebar widget, Electron
 
 在 ZCode 左侧边栏常驻一个紧凑的余额组件：
 
@@ -11,6 +15,8 @@
 - **DeepSeek**：账户余额（总额 / 赠送 / 充值）与今日消耗。
 - **火山引擎**：账户可用余额、当日账单消耗，以及 Coding Plan 的额度窗口（日 / 5 小时 / 周 / 月）。
 - **ZCode**：Start Plan 或编码套餐的额度占用，以及本机今日请求数与 token 消耗。
+
+> English: a ZCode Desktop sidebar widget that shows DeepSeek / Volcengine (Ark & Coding Plan) / ZCode plan balances and today's token usage. Clicking any row opens a consumption analytics modal (time ranges, project/task/provider filters, stacked charts); the gear opens a settings modal for API keys.
 
 ## 前置条件
 
