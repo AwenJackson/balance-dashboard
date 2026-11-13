@@ -35,6 +35,8 @@
 2. 在 ZCode 中打开 **插件市场 → 添加 → 添加插件市场**，粘贴仓库地址。
 3. 在对应市场里安装 `balance-dashboard`。
 
+也可以直接在 [Releases](../../releases) 下载 `balance-dashboard-x.y.z.zip`，解压后把解压目录作为插件市场路径添加（zip 内自带 `marketplace.json`）。
+
 **方式二：本地目录**
 
 1. `git clone` 本仓库到任意目录。
