@@ -18,6 +18,38 @@
 
 > English: a ZCode Desktop sidebar widget that shows DeepSeek / Volcengine (Ark & Coding Plan) / ZCode plan balances and today's token usage. Clicking any row opens a consumption analytics modal (time ranges, project/task/provider filters, stacked charts); the gear opens a settings modal for API keys.
 
+## 截图 / Screenshots
+
+**侧边栏组件 / Sidebar widget**
+
+| 折叠状态 Collapsed | 展开状态 Expanded |
+| --- | --- |
+| ![折叠状态：每行显示余额与今日消耗](docs/images/sidebar-collapsed.png) | ![展开状态：显示余额明细与额度窗口](docs/images/sidebar-expanded.png) |
+
+**设置弹框 / Settings modal**
+
+![设置弹框：显示开关与 API 密钥配置](docs/images/settings.png)
+
+**消耗分析弹框 / Consumption analytics**
+
+| 今日 · Token 视图 Today · tokens | 本月 · Token 视图 This month · tokens |
+| --- | --- |
+| ![今日消耗分析：按小时堆叠柱状图](docs/images/analytics-today.png) | ![本月消耗分析：按天堆叠柱状图](docs/images/analytics-month-tokens.png) |
+| **本月 · 费用视图 This month · cost** | |
+| ![本月费用视图：按供应商堆叠的费用柱状图](docs/images/analytics-month-cost.png) | |
+
+## 副作用披露（必读）
+
+为透明起见，本插件的所有副作用如下：
+
+- **Hook（SessionStart）**：安装/更新后自动运行，同步运行时文件到 `~/.zcode/balance-dashboard/runtime/`，并检查 `resources/app.asar`；
+- **修改 `app.asar`**：ZCode 插件系统没有左侧边栏挂载点，本插件会在 `out/main/index.js` 末尾追加一行本插件专属的动态 import（带完整 SHA-256 全量校验、自动备份 `app.asar.balance-dashboard.bak` 与失败回滚；`/remove-sidebar-widget` 可还原）；
+- **本地文件写入**：`~/.zcode/balance-dashboard/runtime/`（状态、运行时副本、`options.json` 明文配置）；
+- **网络请求**（仅官方域名）：`api.deepseek.com`（余额）、`billing.volces.com` 签名接口（火山余额/账单/额度）、`zcode.z.ai` 与 `api.z.ai` / `bigmodel.cn`（套餐额度）；不发送任何遥测；
+- **凭据处理**：API Key 存储在 ZCode 插件配置或本机 `options.json`（明文，与 ZCode 自身密钥存储同级），仅本机读取，不写日志、不上传；
+- **命令执行**：Hook 与主进程注入器会以子进程方式调用 `node` 执行本插件自带脚本（采集用量、查询分析、asar 校验/重打包）；
+- **MCP server**：无。
+
 ## 前置条件
 
 - 本机可用的 Node.js 运行时（`node` 命令）。
